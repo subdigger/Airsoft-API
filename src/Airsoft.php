@@ -99,8 +99,13 @@ class Airsoft {
 		return $this;
 	}
 
-
-
+	/**
+	 * Add new or replace existing event with specified ID
+	 *
+	 * @param Event $event
+	 *
+	 * @return bool|string
+	 */
 	public function addEvent(Event $event) {
 		return $this->request('event/add', $event);
 	}
@@ -125,8 +130,6 @@ class Airsoft {
 			$request[$message->getSection()] = $message;
 		}
 
-		echo 'FFFF: ' . json_encode($request);
-
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -139,6 +142,12 @@ class Airsoft {
 
 		curl_close($ch);
 
-		return $response;
+		$result = json_decode($response, true);
+
+		if (empty($result['success'])) {
+			throw new \RuntimeException(!empty($result['message']) ? $result['message'] : 'Unknown error: ' . $response);
+		}
+
+		return $result;
 	}
 }
