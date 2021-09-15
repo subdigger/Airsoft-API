@@ -18,6 +18,7 @@ Here below the minimal expected data. But please fill as mas as possible
 ```php
 $event = new \Sdl\Airsoft\Message\Event();
 
+// Server works with Europe/Kiev time zone. So be sure you using same
 $tz = new \DateTimeZone('Europe/Kiev');
 $dateStart = new \DateTime('19.09.2021 12:00', $tz);
 $dateEnd = new \DateTime('19.09.2021 16:00', $tz);
