@@ -1,0 +1,18 @@
+{
+  "name": "sdl/airsoft",
+  "homepage": "https://skydigitallab.com",
+  "authors": [
+    {
+      "name": "Subdigger",
+      "email": "subdigger@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Sdl\\Airsoft\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.2"
+  }
+}
