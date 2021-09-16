@@ -70,4 +70,4 @@ Available cities:
 | 16 | Черкассы |
 | 17 | Львов |
 
-If city is not set - even will be global
+If city is not set - event will be global
